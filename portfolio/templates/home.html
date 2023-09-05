@@ -1,4 +1,7 @@
-<h1> home </h1>
+{%  extends 'layout.html' %}
+
+{% block content %}
+
 
 {% for project in projects %}
 
@@ -13,4 +16,7 @@
 <a href="{{project.url}}" > {{project.url}} </a>
 {% endif %}
 {% endfor %}
+
+
+{% endblock %}
 
