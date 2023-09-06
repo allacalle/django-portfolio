@@ -4,24 +4,60 @@
 
 {% load static %}
 
-<img src="{% static 'portfolio/foto.png'%}" alt="">
+<header class="row bg-black">
+    <div class="container text-center mt-5">
+        <img src="{% static 'portfolio/foto.png' %}" alt="Alfonso Lacalle García" class="img-fluid rounded-circle" style="max-width: 200px;">
+        <h1 class="display-4 mt-3">¡Bienvenido a mi página de porfolio!</h1>
+        <p class="lead">
+            Soy <strong>Alfonso Lacalle García</strong>, un apasionado desarrollador Python fullstack. Mi enfoque principal radica en crear aplicaciones y soluciones eficientes utilizando Python. Además, me apasiona aprovechar las herramientas basadas en inteligencia artificial para optimizar y agilizar mi trabajo.
+        </p>
+    </div>
+</header>
 
+<div class="container my-4">
+    <div class="row">
+        <div class="col-lg-6">
+            <h2>Mi Trayectoria</h2>
+            <p>
+                Desde el inicio de mi carrera como programador, he estado inmerso en el emocionante universo de Python, aprovechando su versatilidad y eficiencia para crear soluciones de software de alto rendimiento. Mi experiencia abarca desde el desarrollo de aplicaciones web y móviles hasta la creación de sistemas robustos de gestión de datos.
+            </p>
+            <p>
+                Mi enfoque en Python se combina con mi interés en las tecnologías basadas en inteligencia artificial, las cuales empleo para simplificar y mejorar mi trabajo diario. Creo firmemente que la IA está transformando la forma en que interactuamos con la tecnología y cómo resolvemos problemas en la vida cotidiana.
+            </p>
+        </div>
+        <div class="col-lg-6">
+            <h2>Mi Porfolio</h2>
+            <p>
+                En mi porfolio, encontrarás una colección de proyectos que representan mi pasión y dedicación en el mundo del desarrollo. Desde aplicaciones web elegantes hasta soluciones de aprendizaje automático y automatización, cada proyecto refleja mi compromiso con la excelencia técnica y la búsqueda de la innovación.
+            </p>
+            <p>
+                Además, mi blog está lleno de artículos y recursos relacionados con la programación en Python, la inteligencia artificial y las mejores prácticas de desarrollo. Estoy emocionado de compartir mi conocimiento y experiencia con la comunidad y seguir aprendiendo junto a otros entusiastas de la tecnología.
+            </p>
+        </div>
+    </div>
+</div>
 
+<div class="container text-center">
+    <a href="{% static 'porfolio/cv.pdf' %}" class="btn btn-primary btn-lg rounded-0 my-3">Descargar CV</a>
+</div>
 
-{% for project in projects %}
+<h3> Aquí presento mis proyectos. Explóralos en detalle haciendo clic en las imágenes correspondientes</h3>
 
-<h2> {{project.title}} </h2>
-
-<p> {{project.descripction}} </p>
-
-<img src="{{project.image.url}}" alt= "{{project.title}}"> </img>
-
-
-{% if project.url %}
-<a href="{{project.url}}" > {{project.url}} </a>
-{% endif %}
-{% endfor %}
-
+<div class="row my-4 text-center">
+    {% for project in projects %}
+        <div class="col-md-4" >
+            <div class="card bg-black text-white card-project">
+                <img src="{{ project.image.url }}" alt="{{ project.title }}" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">{{ project.title }}</h5>
+                    <p class="card-text">{{ project.description }}</p>
+                    {% if project.url %}
+                        <a href="{{ project.url }}" class="btn btn-primary">Ver proyecto</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
 
 {% endblock %}
-

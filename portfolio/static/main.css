@@ -1,3 +1,12 @@
 body{
     background: #090909;
 }
+
+.bg-black{
+    background: #090909;
+}
+
+.card-project:{
+    border: 1px solid #ffffff;
+    cursor: pointer;
+}
